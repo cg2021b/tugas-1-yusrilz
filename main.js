@@ -82,9 +82,9 @@ function main() {
     attribute vec2 aPosition;
     attribute vec3 aColor;
     varying vec3 vColor;
-    uniform float uChanged;
+    uniform mat4 uChanged;
     void main(){
-        gl_Position = vec4(aPosition.x,aPosition.y + uChanged, 0.0, 1.0);
+        gl_Position = uChanged * vec4(aPosition,0,1);
         vColor = aColor;
     }
   `;
@@ -138,24 +138,43 @@ function main() {
 
   var speed = 0.0160;
   var change = 0;
-  var uChange = gl.getUniformLocation(shaderProgram, "uChanged");
+  var uChanged = gl.getUniformLocation(shaderProgram, "uChanged");
+
   function render() {
     if (change >= 0 || change < -1) speed = -speed;
     change += speed;
-    gl.uniform1f(uChange, change);
+    // gl.uniform1f(uChange, change);
     gl.clearColor(0.0, 0.1, 0.15, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
-    
-    gl.drawArrays(gl.TRIANGLE_FAN, 0, 8);
-    gl.drawArrays(gl.TRIANGLE_FAN, 8, 8);
-    gl.drawArrays(gl.TRIANGLE_FAN, 15, 10);
-    gl.drawArrays(gl.TRIANGLE_FAN, 25, 3);
+
+    const kiri = [
+			1, 0, 0, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			0, 0, 0, 1,
+		]
+		
+		const kanan = [
+			1, 0, 0, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			0, change, 0, 1,
+		]
+
+    gl.uniformMatrix4fv(uChanged, false, kiri);
     gl.drawArrays(gl.TRIANGLE_FAN, 28, 6);
-    gl.drawArrays(gl.TRIANGLE_FAN, 34, 10);
+    gl.drawArrays(gl.TRIANGLE_FAN, 34, 10);  
     gl.drawArrays(gl.TRIANGLE_FAN, 44, 3);
     gl.drawArrays(gl.TRIANGLE_FAN, 47, 3);
     gl.drawArrays(gl.TRIANGLE_FAN, 50, 3);
     gl.drawArrays(gl.TRIANGLE_FAN, 53, 3);
+    
+    gl.uniformMatrix4fv(uChanged, false, kanan);
+    gl.drawArrays(gl.TRIANGLE_FAN, 0, 8);
+    gl.drawArrays(gl.TRIANGLE_FAN, 8, 8);
+    gl.drawArrays(gl.TRIANGLE_FAN, 15, 10);
+    gl.drawArrays(gl.TRIANGLE_FAN, 25, 3);
+
   }
   setInterval(render, 1000 / 60);
 }
