@@ -141,7 +141,7 @@ function main() {
   var uChanged = gl.getUniformLocation(shaderProgram, "uChanged");
 
   function render() {
-    if (change >= 0 || change < -1) speed = -speed;
+    if (change >= 0.05 || change < -1.05) speed = -speed;
     change += speed;
     // gl.uniform1f(uChange, change);
     gl.clearColor(0.0, 0.1, 0.15, 1.0);
