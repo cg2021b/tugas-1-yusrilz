@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./threelib/three.min.js"></script>
+    <script src="./threelib/controls/PointerLockControls.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Tugas Grafkom : Game Match the Colors</title>
+  </head>
+  <body>
+    <h1 class="judul">Tugas Grafkom : Game Match the Colors</h1>
+    <div class="desc">
+      <div class="information">
+        <div class="status">
+          <button id="play-button">Play</button>
+          <p id="gameover">Game Over</h2>
+        </div>
+        <div class="keterangan">
+          <h4>Keterangan:</h4>
+          <ol>
+            <li>Score : poin yang diperoleh</li>
+            <li>Game Over ketika Diamond di Layar lebih dari 10</li>
+          </ol>
+          <p>Score: <span id="score">0</span></p>
+        </div>
+      </div>
+    </div>
+    <section class="preview-canvas">
+      <canvas class="webgl"> Browser tidak mendukung HTML 5 </canvas>
+    </section>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
