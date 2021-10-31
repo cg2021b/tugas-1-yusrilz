@@ -21,3 +21,10 @@ Untuk tampilan bisa dilihat di : https://cg2021b.github.io/tugas-1-yusrilz/tugas
 
 # Tugas Three.js 2
 Untuk tampilan bisa diliha di : https://cg2021b.github.io/tugas-1-yusrilz/tugas-threejs-2/
+
+# Tugas Three.js 3
+Untuk Control, Texture, Fog, dan Shadows : https://cg2021b.github.io/tugas-1-yusrilz/tugas-threejs-3/ctfs/
+
+Untuk Loading Models : https://cg2021b.github.io/tugas-1-yusrilz/tugas-threejs-3/loading-model/
+
+Untuk Realistic Reflection dan Panorama : https://cg2021b.github.io/tugas-1-yusrilz/tugas-threejs-3/reflection-panorama/
